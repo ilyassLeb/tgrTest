@@ -1,0 +1,440 @@
+
+
+<nav class="page-breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink=".">Citoyen</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Inscription</li>
+  </ol>
+</nav>
+<div class="row ">
+  <div class="col-md-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+
+
+        <aw-wizard>
+
+     <aw-wizard-step stepTitle="Etape 1">
+      <form #myTemplateVar="ngForm">
+
+
+            <div class=" row">
+              <div class="form-group col-md-6">
+              <label for="lastName1" class="col-sm-3 col-form-label">Nom*</label>
+              <div class="col-sm-9">
+                <input
+                 required
+                 minlength="3"
+                 maxlength="20"
+                 pattern="[a-zA-Z ]+"
+                 ngModel name="ln"
+                 #ln="ngModel"
+                 [(ngModel)]="citoyenSaisi.nom"
+                 type="text"  class="form-control" id="lastName1" placeholder="Last name">
+
+                <div  *ngIf="ln.touched && ln.invalid" class="alert alert-danger mt-2 ">
+                    <div *ngIf="ln.errors.required" > ce champs est obligatoire</div>
+                    <div *ngIf="ln.errors.minlength" >Ce champ doit contenir au moins 3 caractères </div>
+                    <div *ngIf="ln.errors.pattern" >Veuillez saisir une valeur valide dans ce champ</div>
+
+                </div>
+              </div>
+
+
+            </div>
+            <div class="form-group col-md-6">
+              <label for="lastName1" class="col-sm-3 col-form-label"><span id="p1">*</span>الاسم العائلي</label>
+              <div class="col-sm-9">
+                <input
+                required
+                minlength="3"
+                maxlength="20"
+               pattern="[\u0600-\u06FF\s]{3,50}"
+                ngModel name="nomarab"
+                #nomarab="ngModel"
+                [(ngModel)]="citoyenSaisi.nomArab"
+                type="text" class="form-control" id="lastName1" placeholder="Last name">
+                <div  *ngIf="nomarab.touched && nomarab.invalid" class="alert alert-danger mt-2 ">
+                  <div *ngIf="nomarab.errors.required" > هذا الحقل إلزامي</div>
+                  <div *ngIf="nomarab.errors.minlength" >يجب أن يحتوي هذا الحقل على 3 أحرف على الأقل</div>
+                  <div *ngIf="nomarab.errors.pattern" > يرجى إدخال قيمة صحيحة في هذا الحقل</div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+              <div class="row">
+              <div class="form-group col-md-6">
+              <label for="lastName1" class="col-sm-3  col-form-label">Prénom</label>
+              <div class="col-sm-9">
+                <input
+                required
+                minlength="3"
+                maxlength="20"
+                pattern="[a-zA-Z ]+"
+                ngModel name="prenom"
+                #prenom="ngModel"
+                [(ngModel)]="citoyenSaisi.prenom"
+                type="text" class="form-control" id="lastName1" placeholder="Last name">
+                <div  *ngIf="ln.touched && ln.invalid" class="alert alert-danger mt-2 ">
+                  <div *ngIf="ln.errors.required" > ce champs est obligatoire</div>
+                  <div *ngIf="ln.errors.minlength" >Ce champ doit contenir au moins 3 caractères </div>
+                  <div *ngIf="ln.errors.pattern" >Veuillez saisir une valeur valide dans ce champ</div>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="lastName1" class="col-sm-3 col-form-label">الاسم الشخصي </label>
+              <div class="col-sm-9">
+                <input
+                required
+                minlength="3"
+                maxlength="20"
+                pattern="[\u0600-\u06FF\s]{3,50}"
+                ngModel name="prenomarab"
+                #prenomarab="ngModel"
+                [(ngModel)]="citoyenSaisi.prenomArab"
+                type="text" class="form-control" id="lastName1" placeholder="Last name">
+                <div  *ngIf="prenomarab.touched && prenomarab.invalid" class="alert alert-danger mt-2 ">
+                  <div *ngIf="prenomarab.errors.required" > هذا الحقل إلزامي</div>
+                  <div *ngIf="prenomarab.errors.minlength" >يجب أن يحتوي هذا الحقل على 3 أحرف على الأقل</div>
+                  <div *ngIf="prenomarab.errors.pattern" > يرجى إدخال قيمة صحيحة في هذا الحقل</div>
+              </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+          <div class="form-check-inline  py-5  ml-2">
+            <input
+            required
+            [(ngModel)]="citoyenSaisi.sexe"
+            class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="femme">
+            <label class="form-check-label" for="exampleRadios1">
+              femme
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <input
+            required
+            [(ngModel)]="citoyenSaisi.sexe"
+             class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="homme">
+            <label class="form-check-label" for="exampleRadios2">
+             homme
+            </label>
+          </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="userName1" class="col-sm-3 mx-auto col-form-label">Email</label>
+            <div class="col-sm-9">
+              <input
+              required
+              minlength="2"
+              maxlength="20"
+              pattern="[a-zA-Z ]+"
+              ngModel name="adresse"
+              #adresse="ngModel"
+              [(ngModel)]="citoyenSaisi.adress"
+             type="email" class="form-control" id="userName1" placeholder="introduire votre adesse mail">
+             <div  *ngIf="adresse.touched && adresse.invalid" class="alert alert-danger mt-2 ">
+              <div *ngIf="adresse.errors.required" > ce champs est obligatoire</div>
+              <div *ngIf="adresse.errors.minlength" >Ce champ doit contenir au moins 3 caractères </div>
+              <div *ngIf="adresse.errors.pattern" >Veuillez saisir une valeur valide dans ce champ</div>
+              </div>
+            </div>
+          </div>
+          </div>
+ <div class="row">
+ <div class="form-group col-md-6">
+  <label for="date" class="col-sm-4  col-form-label" >Date de naissance </label>
+    <div class="col-md-9">
+      <input
+      required
+      [(ngModel)]="citoyenSaisi.dateNaissance"
+      style="width: 100%;" type="date" class="form-control form-control-sm" id="date" placeholder="Jour/mois/annee">
+    </div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="cin" class="col-sm-4  col-form-label">Cin</label>
+        <div class="col-md-9">
+          <input
+          required
+          minlength="3"
+          maxlength="20"
+          pattern="^[A-Za-z]{2}\d{5}$"
+          ngModel name="cin"
+          #cin="ngModel"
+          [(ngModel)]="citoyenSaisi.cin"
+           style="width: 100%;" type="text" class="form-control form-control-sm" id="Cin" placeholder="votre cin">
+           <div  *ngIf="cin.touched && cin.invalid" class="alert alert-danger mt-2 ">
+            <div *ngIf="cin.errors.required" > ce champs est obligatoire</div>
+            <div *ngIf="cin.errors.minlength" >Ce champ doit contenir au moins 3 caractères </div>
+            <div *ngIf="cin.errors.pattern" >Veuillez saisir une valeur valide dans ce champ</div>
+
+        </div>
+        </div>
+
+        </div>
+
+            </div>
+
+
+            <div class=" row">
+              <div class="form-group col-md-6">
+              <label for="userName1" class="col-sm-3 mx-auto col-form-label">Ville</label>
+              <div class="col-sm-9">
+                <input
+                required
+                minlength="2"
+                maxlength="20"
+                pattern="[a-zA-Z ]+"
+                ngModel name="ville"
+                #ville="ngModel"
+                [(ngModel)]="citoyenSaisi.ville"
+                type="text" class="form-control" id="userName1" placeholder="introduire le nom de votre Ville">
+                <div  *ngIf="ville.touched && ville.invalid" class="alert alert-danger mt-2 ">
+                  <div *ngIf="ville.errors.required" > ce champs est obligatoire</div>
+                  <div *ngIf="ville.errors.minlength" >Ce champ doit contenir au moins 3 caractères </div>
+                  <div *ngIf="ville.errors.pattern" >Veuillez saisir une valeur valide dans ce champ</div>
+
+              </div>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="villearab" class="col-sm-3 mx-auto col-form-label">المدينة</label>
+              <div class="col-sm-9">
+                <input
+                required
+                minlength="2"
+                maxlength="20"
+                pattern="[\u0600-\u06FF\s]{3,50}"
+                ngModel name="villearab"
+                #villearab="ngModel"
+                [(ngModel)]="citoyenSaisi.villeArab"
+                 type="text" class="form-control" id="userName1" placeholder="المدينة">
+                 <div  *ngIf="nomarab.touched && nomarab.invalid" class="alert alert-danger mt-2 ">
+                  <div *ngIf="nomarab.errors.required" > هذا الحقل إلزامي</div>
+                  <div *ngIf="nomarab.errors.minlength" >يجب أن يحتوي هذا الحقل على 3 أحرف على الأقل</div>
+                  <div *ngIf="nomarab.errors.pattern" > يرجى إدخال قيمة صحيحة في هذا الحقل</div>
+              </div>
+              </div>
+            </div>
+
+          </div>
+          <div class=" row">
+            <div class="form-group col-md-6">
+            <label for="userName1" class="col-sm-3 mx-auto col-form-label">adress</label>
+            <div class="col-sm-9">
+              <input
+              required
+              minlength="2"
+              maxlength="20"
+              pattern="[a-zA-Z ]+"
+              ngModel name="adresse"
+              #adresse="ngModel"
+              [(ngModel)]="citoyenSaisi.adress"
+             type="text" class="form-control" id="userName1" placeholder="introduire votre adresse">
+             <div  *ngIf="adresse.touched && adresse.invalid" class="alert alert-danger mt-2 ">
+              <div *ngIf="adresse.errors.required" > ce champs est obligatoire</div>
+              <div *ngIf="adresse.errors.minlength" >Ce champ doit contenir au moins 3 caractères </div>
+              <div *ngIf="adresse.errors.pattern" >Veuillez saisir une valeur valide dans ce champ</div>
+
+          </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="villearab" class="col-sm-3 mx-auto col-form-label">عنوان</label>
+            <div class="col-sm-9">
+              <input
+              required
+              minlength="2"
+              maxlength="20"
+              pattern="[\u0600-\u06FF\s]{3,50}"
+              ngModel name="adressarab"
+              #adressarab="ngModel"
+              [(ngModel)]="citoyenSaisi.adressArab"
+
+              type="text" class="form-control" id="userName1" placeholder="عنوان">
+              <div  *ngIf="adressarab.touched && adressarab.invalid" class="alert alert-danger mt-2 ">
+                <div *ngIf="adressarab.errors.required" > هذا الحقل إلزامي</div>
+                <div *ngIf="adressarab.errors.minlength" >يجب أن يحتوي هذا الحقل على 3 أحرف على الأقل</div>
+                <div *ngIf="adressarab.errors.pattern" > يرجى إدخال قيمة صحيحة في هذا الحقل</div>
+            </div>
+            </div>
+          </div>
+
+        </div>
+      <div class=" row">
+
+        <div class="form-group col-md-6">
+                 <label for="userName1" class="col-sm-3 mx-auto col-form-label">Etat civil</label>
+                         <div class="col-sm-9">
+                                      <input
+                                         required
+                                         minlength="2"
+                                         maxlength="20"
+                                         pattern="[a-zA-Z ]+"
+                                         ngModel name="etatcivil"
+                                         #etatcivil="ngModel"
+                                         [(ngModel)]="citoyenSaisi.etatCivil"
+                                         type="text" class="form-control" id="userName1" placeholder="Ex:22/1990">
+                                                <div  *ngIf="etatcivil.touched && etatcivil.invalid" class="alert alert-danger mt-2 ">
+                                                                 <div *ngIf="etatcivil.errors.required" > ce champs est obligatoire</div>
+                                                                 <div *ngIf="etatcivil.errors.minlength" >Ce champ doit contenir au moins 3 caractères </div>
+                                                                 <div *ngIf="etatcivil.errors.pattern" >Veuillez saisir une valeur valide dans ce champ</div>
+                                                   </div>
+                              </div>
+                </div>
+         <div class="form-group col-md-6">
+               <label for="date" class="col-sm-4  col-form-label" >Valable jusqu'au </label>
+                  <div class="col-md-9">
+                         <input
+                         required
+                         [(ngModel)]="citoyenSaisi.valableJusqua"
+                         style="width: 100%;" type="date" class="form-control form-control-sm" id="date" placeholder="Jour/mois/annee">
+                    </div>
+           </div>
+        </div>
+
+
+            <div class="d-flex justify-content-center mt-2">
+              <button [disabled]="!myTemplateVar.valid" class="btn btn-primary" type="button" awNextStep>Continue</button>
+            </div>
+          </form>
+          </aw-wizard-step>
+
+          <aw-wizard-step stepTitle="Etape 2">
+            <div class=" row">
+              <div class="form-group col-md-6">
+              <label for="nompere" class="col-sm-3 col-form-label">Nom de pere *</label>
+              <div class="col-sm-9">
+                <input
+                required
+                minlength="2"
+                maxlength="20"
+
+                pattern="[a-zA-Z ]+"
+                ngModel name="nomppere"
+                #nomppere="ngModel"
+                [(ngModel)]="citoyenSaisi.nomDuPere"
+                type="text" class="form-control" id="nompere" placeholder="Last name">
+                <div  *ngIf="nomppere.touched && nomppere.invalid" class="alert alert-danger mt-2 ">
+                  <div *ngIf="nomppere.errors.required" > ce champs est obligatoire</div>
+                  <div *ngIf="nomppere.errors.minlength" >Ce champ doit contenir au moins 3 caractères </div>
+                  <div *ngIf="nomppere.errors.pattern" >Veuillez saisir une valeur valide dans ce champ</div>
+
+              </div>
+              </div>
+            </div>
+
+
+            <div class="form-group col-md-6">
+              <label for="lastName1" class="col-sm-3 col-form-label">الاسم العاىلي للاب</label>
+              <div class="col-sm-9">
+                <input
+                 required
+                 minlength="3"
+                 maxlength="20"
+                 pattern="[a-zA-Z ]+"
+                 ngModel name="npa"
+                 #npa="ngModel"
+                 [(ngModel)]="citoyenSaisi.nomDuPereArab"
+                 type="text"  class="form-control" id="lastName1" placeholder="Last name">
+
+                 <div  *ngIf="nomarab.touched && nomarab.invalid" class="alert alert-danger mt-2 ">
+                  <div *ngIf="nomarab.errors.required" > هذا الحقل إلزامي</div>
+                  <div *ngIf="nomarab.errors.minlength" >يجب أن يحتوي هذا الحقل على 3 أحرف على الأقل</div>
+                  <div *ngIf="nomarab.errors.pattern" > يرجى إدخال قيمة صحيحة في هذا الحقل</div>
+              </div>
+                </div>
+                </div>
+
+
+          </div>
+          <div class=" row">
+            <div class="form-group col-md-6">
+              <label for="lastName1" class="col-sm-3 col-form-label">nom de mere</label>
+              <div class="col-sm-9">
+                <input
+                 required
+                 minlength="3"
+                 maxlength="20"
+                 pattern="[a-zA-Z ]+"
+                 ngModel name="nma"
+                 #nma="ngModel"
+                 [(ngModel)]="citoyenSaisi.nomDuMere"
+                 type="text"  class="form-control" id="lastName1" placeholder="Last name">
+
+                 <div  *ngIf="nma.touched && nma.invalid" class="alert alert-danger mt-2 ">
+                  <div *ngIf="nma.errors.required" > ce champs est obligatoire</div>
+                  <div *ngIf="nma.errors.minlength" >Ce champ doit contenir au moins 3 caractères </div>
+                  <div *ngIf="nma.errors.pattern" >Veuillez saisir une valeur valide dans ce champ</div>
+
+              </div>
+                </div>
+                </div>
+
+
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastName1" class="col-sm-3 col-form-label">الاسم العاىلي للام</label>
+            <div class="col-sm-9">
+              <input
+               required
+               minlength="3"
+               maxlength="20"
+               pattern="[\u0600-\u06FF\s]{3,50}"
+               ngModel name="nmar"
+               #nmar="ngModel"
+               [(ngModel)]="citoyenSaisi.nomDuMereArab"
+               type="text"  class="form-control" id="lastName1" placeholder="Last name">
+
+               <div  *ngIf="nomarab.touched && nomarab.invalid" class="alert alert-danger mt-2 ">
+                <div *ngIf="nomarab.errors.required" > هذا الحقل إلزامي</div>
+                <div *ngIf="nomarab.errors.minlength" >يجب أن يحتوي هذا الحقل على 3 أحرف على الأقل</div>
+                <div *ngIf="nomarab.errors.pattern" > يرجى إدخال قيمة صحيحة في هذا الحقل</div>
+                </div>
+              </div>
+              </div>
+
+
+        {{citoyenSaisi|json}}
+
+
+            <div class="d-flex justify-content-center mt-2">
+              <button class="btn btn-light mr-2" type="button" awPreviousStep>Back</button>
+              <button class="btn btn-primary" type="button" awNextStep>Continue</button>
+            </div>
+
+          </aw-wizard-step>
+
+          <aw-wizard-step stepTitle="Fin">
+            <div class="text-center">
+              <i data-feather="check-circle" appFeatherIcon class="text-success mt-4 mb-2 icon-xxl"></i>
+              <h3 class="text-muted mb-3">Merci d'avoir rempli notre formulaire d'inscription</h3>
+              <p class="w-75 mx-auto mb-4 text-muted">Votre inscription a été enregistrée avec succès. Nous vous contacterons bientôt pour vous fournir les informations nécessaires</p>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+              <button class="btn btn-light mr-2" type="button" awPreviousStep>Back</button>
+              <button class="btn btn-success" type="submit" (click)="persist()" (click)="finishFunction()">Finish</button>
+            </div>
+          </aw-wizard-step>
+        </aw-wizard>
+
+      </div>
+    </div>
+  </div> <!-- col -->
+
+</div> <!-- row -->
+
+
+
+
+
